@@ -1,0 +1,127 @@
+/* CSS for page content */
+/* CSS for page content */
+.page-content {
+    padding: 20px;
+    background-color: #E3E6E3;
+    height: 100%; /* Set full height */
+  }
+  
+  
+  /* CSS for live matches section */
+  .live-matches {
+    margin-bottom: 40px;
+  }
+  
+  .live-matches h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* CSS for match cards */
+  .match-cards {
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .match-card {
+    background-color: #f2f5f7; /* Red background color for match card */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    min-width: 300px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .match-card:last-child {
+    margin-right: 0;
+  }
+  
+  .match-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .match-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    
+  }
+  
+  .match-card .score {
+    font-size: 20px;
+    color: #d63031; /* Red color for the score */
+    margin-bottom: 10px;
+  }
+  
+  .match-card .status {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ff7675; /* Same color as match card background for status */
+  }
+  
+  /* Optional: Scrollbar customization */
+  .match-cards::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .match-cards::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 8px;
+  }
+
+  /* Dashboard.css */
+
+/* ... existing styles ... */
+
+.dashboard-banner {
+  position: relative; /* Add position relative */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.dashboard-banner img {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Text color */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Your CSS code for the dashboard background */
+.slide.bannerBg1 {
+  height: 670px;
+  box-sizing: border-box;
+  background: url(https://cdnflags.dream11.com/d11-static-pages/images/homeBannerDeskAug23.webp), url(https://cdnflags.dream11.com/d11-static-pages/images/homeBannerDeskAug23.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0;
+}
+
+/* Additional CSS for your dashboard content */
+.slide.bannerBg1 {
+  /* Add any additional styles for your dashboard content here */
+}
+
+
+
+
+
+/* ... existing styles ... */
+
+  

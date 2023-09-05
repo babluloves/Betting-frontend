@@ -1,0 +1,54 @@
+/* Reset some default styling */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a global font */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .nav-bar ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-bar li {
+    margin-right: 20px;
+  }
+  
+  .nav-bar a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* Main content styles */
+  .home-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .main-content {
+    flex: 1; /* Let the main content grow to fill the remaining space */
+  }
+  
+  .featured-predictions,
+  .upcoming-matches,
+  .recent-results {
+    margin-bottom: 30px;
+  }
+  
+  .featured-predictions h2,
+  .upcoming-matches h2,
+  .recent-results h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
