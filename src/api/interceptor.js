@@ -11,7 +11,7 @@ export function requestInterceptor(request) {
     }
     if (!tokenNotRequired) {
         const tokenKey = getLocalStorage(accessTokenKey);
-        request.headers["Authorization"] = `Bearer ${tokenKey}`;
+        request.headers["Authorization"] = `JWT ${tokenKey}`;
     }
     if ((apiCallSet.size === 1)) {
         store.dispatch(setApiCallLoadingAct(true));

@@ -71,6 +71,7 @@ const PredictionPage = () => {
     console.log("payed amount")
   };
   const dispatch = useDispatch()
+  
 
   useEffect(() => {
     getPredictionApiCall();

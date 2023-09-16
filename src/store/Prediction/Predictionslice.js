@@ -5,7 +5,7 @@ const initialState = {
     PredictionErrorResp: undefined,
 }
 
-export const predectionSlice = createSlice({
+export const PredectionSlice = createSlice({
     name: "prediction",
     initialState,
     reducers: {
@@ -18,5 +18,5 @@ export const predectionSlice = createSlice({
     }
 })
 
-export default predectionSlice.reducer;
-export const { setPredictionListAct, setPredictionErrorAct } = predectionSlice.actions;
+export default PredectionSlice.reducer;
+export const { setPredictionListAct, setPredictionErrorAct } = PredectionSlice.actions;
