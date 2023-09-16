@@ -1,0 +1,50 @@
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0; /* Increase vertical padding for better spacing */
+    text-align: center;
+    position: relative; /* Position relative for child elements */
+  }
+  
+  /* Center content in the footer */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Style links in the footer */
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer a:hover {
+    color: #f7a440; /* Change link color on hover */
+  }
+  
+  /* Add a separator line */
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: #555;
+    margin: 10px 0;
+  }
+  
+  /* Responsive Footer */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 20px 0; /* Adjust padding for smaller screens */
+    }
+  
+    /* Center content in the footer */
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  

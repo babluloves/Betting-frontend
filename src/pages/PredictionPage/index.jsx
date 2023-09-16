@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import PredictionCard from '../../component/PredectionCard';
 import './Prediction.css';
 import { Header } from '../../component';
+//generate api call
+import { getpredictionpage } from '../../store/Prediction/predictionthunk';
+import { generateApiUrl } from '../../api/apihelper';
 
 const matchesData = [
   {
@@ -66,6 +70,26 @@ const PredictionPage = () => {
     // Implement payment logic for the specific match
     console.log("payed amount")
   };
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getPredictionApiCall();
+   }, []);
+
+   async function getPredictionApiCall() {
+    try {
+      const response = await dispatch(getpredictionpage(generateApiUrl('Predection')));
+      console.log('API Response:', response);
+      // Handle response or update state as needed
+    } catch (error) {
+      console.error('Error fetching prediction data:', error);
+      // Handle the error gracefully, e.g., set an error state
+    }
+  }
+  
+
+   //const { results: Predictiondata } = PredictionListResp || {};
+
 
   return (
     <div>
@@ -78,6 +102,7 @@ const PredictionPage = () => {
             {matchesData.map((match) => (
                 <PredictionCard key={match.id} matchDetails={match} onPay={() => handlePay(match.id)} />
             ))}
+
             </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { InputText, FullPageLoader } from "../../component";
+import { InputText, FullPageLoader,Button } from "../../component";
 import  Trackingimg from "../../assets/TrackingImg.jpg";
 import Logo from "../../assets/Logo.jpg";
 import "./Login.css";
@@ -64,6 +64,7 @@ export default function Login() {
         validationSchema,
         onSubmit: (values) => {
             dispatch(loginUserAct(generateApiUrl("login"), values));
+            console.log(values);
         },
     });
     return (
@@ -90,32 +91,39 @@ export default function Login() {
             className="logo"
           />
           <h1 className="login-title">Welcome To Betting Website</h1>
-          <form>
+          <form onSubmit={loginForm.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="form-input"
-                placeholder="Enter your email"
-              />
+              <InputText
+              labelName="Email"
+              labelClassName="text-gray-dark fw-bold"
+              containerClassName="mb-3"
+              name="email"
+              value={loginForm.values.email}
+              onBlur={loginForm.handleBlur}
+              onChange={loginForm.handleChange}
+              invalid={(loginForm.touched.email && loginForm.errors.email) ? true : false}
+              error={(loginForm.touched.email && loginForm.errors.email) ? loginForm.errors.email : ""}
+             />
             </div>
             <div className="form-group">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="form-input"
-                placeholder="Enter your password"
+
+              <InputText
+              labelName="Password"
+              labelClassName="text-gray-dark fw-bold"
+              containerClassName="mb-4"
+              name="password"
+              value={loginForm.values.password}
+              onBlur={loginForm.handleBlur}
+              onChange={loginForm.handleChange}
+              invalid={(loginForm.touched.password && loginForm.errors.password) ? true : false}
+              error={(loginForm.touched.password && loginForm.errors.password) ? loginForm.errors.password : ""}
               />
             </div>
-            <button type="submit" className="login-button">
-              Login
-            </button>
+            <Button
+              type="submit"
+               className="btn-primary w-100"
+               btnText="Login"
+            />
           </form>
         </div>
       </div>

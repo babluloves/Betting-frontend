@@ -3,3 +3,4 @@ export { Fotter } from "./Fotter";
 export { LiveMatches } from "./LiveMatches";
 export { InputText } from "./InputText";
 export { FullPageLoader } from "./FullPage";
+export { Button } from "./Button";

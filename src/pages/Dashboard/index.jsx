@@ -24,18 +24,12 @@ export default function Dashboard() {
   ];
 
   return (
+    <div className="home-page">
     <div className="page-content slide bannerBg1"> 
       <div className="dashboard-banner" onClick={handleBannerClick}>
         <img src={Banner} alt="Dashboard Banner" />
-        <div className="banner-text">
-          <h2>Babar Azam reacts to Virat Kohli's comments</h2>
-          <p>Asia Cup</p>
-        </div>
       </div>
-      <div className="live-matches">
-        
-
-        </div>
+      </div>
       </div>
   );
 }

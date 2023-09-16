@@ -7,6 +7,7 @@ import Result from "../pages/Result";
 import Login from "../pages/Login";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
+import SignupForm from "../pages/Signup";
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AppRoutes() {
       <Route path="login" element={<Login />} />
       <Route path="about" element={<AboutPage/>} />
       <Route path="contact" element={<ContactPage/>} />
+      <Route path="signup" element={<SignupForm/>} />
     </Routes>
   );
 }

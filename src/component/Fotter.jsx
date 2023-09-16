@@ -1,5 +1,5 @@
 import React from 'react';
-import "../scss/Menulayout.css"
+import "../scss/fotter.css";
 
 export function Fotter() {
   return (
