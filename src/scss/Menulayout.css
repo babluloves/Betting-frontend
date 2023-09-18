@@ -52,3 +52,22 @@ body, h1, h2, h3, p, ul, li {
     font-size: 24px;
     margin-bottom: 10px;
   }
+
+  /* Add this CSS to your stylesheet or component */
+.logout-button {
+  background-color: #f44336; /* Red background color */
+  color: white; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px; /* Rounded corners */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f; /* Darker red background color on hover */
+}

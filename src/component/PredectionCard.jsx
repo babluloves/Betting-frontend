@@ -3,12 +3,12 @@ import React from 'react';
 import LockIcon from '../assets/lock-active.svg'; 
 import '../scss/predictioncard.css';
 
-const PredictionCard = ({ matchDetails, onPay }) => {
+const PredictionCard = ({ teamName, price, onPay }) => {
   return (
     <div className="prediction-card">
       <div className="card-content">
-        <h2>{matchDetails.title}</h2>
-        <p>Date: {matchDetails.date}</p>
+        <h2>{teamName}</h2>
+        <p>Price: ${price}</p>
         {/* Add other match details */}
       </div>
       <div className="card-lock">
