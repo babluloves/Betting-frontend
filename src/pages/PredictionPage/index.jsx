@@ -44,6 +44,7 @@ const PredictionPage = () => {
       } else {
         console.error('Error fetching prediction data:', response.status, response.statusText);
       }
+      
     } catch (error) {
       console.error('Error fetching prediction data:', error);
     }
@@ -72,12 +73,14 @@ const PredictionPage = () => {
         bodyData,
         { headers }
       );
+      
 
       if (response.status === 200) {
         console.log('Prediction POST request successful:', response.data);
         // Handle success as needed
 
         // After successfully creating the prediction, open Razorpay payment UI
+        //console.log(response.order.order_payment_id);
         const options = {
           key_id: 'rzp_test_pUAFN3wugOV9Ek',
           key_secret: 'zilYJHW6eX7JaESyFkJfR0UY',
@@ -86,9 +89,10 @@ const PredictionPage = () => {
           name: 'Org. Name',
           description: 'Test transaction',
           image: '', // Add image URL
-          order_id: 'order_Me8pugBP4fn4ir',
+          order_id: response.data.payment.id,
           handler: function (response) {
             handlePaymentSuccess(response);
+            console.log(response);
           },
           prefill: {
             name: "User's name",
@@ -117,26 +121,28 @@ const PredictionPage = () => {
 
   const handlePaymentSuccess = async (response) => {
     try {
-      const bodyData = new FormData();
-      bodyData.append('response', JSON.stringify(response));
-
-      await Axios({
-        url: `http://localhost:8000/success/`,
-        method: 'POST',
-        data: bodyData,
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => {
-          console.log('Everything is OK!');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const payload = {
+        response: JSON.stringify(response), // Convert response to a JSON string
+      };
+  
+      const apiUrl = 'http://localhost:8000/success/';
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      };
+  
+      const res = await Axios.post(apiUrl, payload, { headers });
+  
+      if (res.status === 200) {
+        console.log('Payment success POST request successful:', res.data);
+        // Handle success as needed
+      } else {
+        console.error('Payment success POST request failed with status code:', res.status);
+        // Handle other status codes as needed
+      }
     } catch (error) {
       console.error('Error making payment success POST request:', error);
+      // Handle other errors as needed
     }
   };
 
