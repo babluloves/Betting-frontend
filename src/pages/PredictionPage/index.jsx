@@ -117,29 +117,31 @@ const PredictionPage = () => {
 
   const handlePaymentSuccess = async (response) => {
     try {
-      const bodyData = new FormData();
-      bodyData.append('response', JSON.stringify(response));
-
-      await Axios({
-        url: `http://localhost:8000/success/`,
-        method: 'POST',
-        data: bodyData,
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => {
-          console.log('Everything is OK!');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const payload = {
+        response: JSON.stringify(response), // Convert response to a JSON string
+      };
+  
+      const apiUrl = 'http://localhost:8000/success/';
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      };
+  
+      const res = await Axios.post(apiUrl, payload, { headers });
+  
+      if (res.status === 200) {
+        console.log('Payment success POST request successful:', res.data);
+        // Handle success as needed
+      } else {
+        console.error('Payment success POST request failed with status code:', res.status);
+        // Handle other status codes as needed
+      }
     } catch (error) {
       console.error('Error making payment success POST request:', error);
+      // Handle other errors as needed
     }
   };
-
+  
   return (
     <div>
       <Header title="Match Predictions" />

@@ -1,0 +1,26 @@
+/* CSS for Expert Team Page */
+.table-container {
+    padding: 20px;
+}
+
+.team-name {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.players-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.players-table th,
+.players-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.players-table th {
+    background-color: #f2f2f2;
+}
