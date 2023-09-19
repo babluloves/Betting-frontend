@@ -44,6 +44,7 @@ const PredictionPage = () => {
       } else {
         console.error('Error fetching prediction data:', response.status, response.statusText);
       }
+      
     } catch (error) {
       console.error('Error fetching prediction data:', error);
     }
@@ -72,12 +73,14 @@ const PredictionPage = () => {
         bodyData,
         { headers }
       );
+      
 
       if (response.status === 200) {
         console.log('Prediction POST request successful:', response.data);
         // Handle success as needed
 
         // After successfully creating the prediction, open Razorpay payment UI
+        //console.log(response.order.order_payment_id);
         const options = {
           key_id: 'rzp_test_pUAFN3wugOV9Ek',
           key_secret: 'zilYJHW6eX7JaESyFkJfR0UY',
@@ -86,9 +89,10 @@ const PredictionPage = () => {
           name: 'Org. Name',
           description: 'Test transaction',
           image: '', // Add image URL
-          order_id: 'order_Me8pugBP4fn4ir',
+          order_id: response.data.payment.id,
           handler: function (response) {
             handlePaymentSuccess(response);
+            console.log(response);
           },
           prefill: {
             name: "User's name",
