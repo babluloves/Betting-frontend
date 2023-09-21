@@ -16,7 +16,7 @@ export default function Result() {
 
     const getPredictionResultsApiCall = async () => {
         try {
-            const apiUrl = 'http://localhost:8000/results'; // API endpoint
+            const apiUrl = 'http://localhost:8000/auth/api/results'; // API endpoint
             const authToken = getLocalStorage(accessTokenKey); // Replace with your method for fetching the JWT token
 
             const headers = {
@@ -44,6 +44,7 @@ export default function Result() {
     function handlereq(uuid, price) {
         // Redirect to the Expert Team page with the UUID as a URL parameter
         navigate(`/expert-team/${uuid}`);
+
     }
 
     return (
@@ -51,10 +52,11 @@ export default function Result() {
             <Header title="Match Predictions" />
             <div className='page-content'>
                 <div className="prediction-page">
-                    {predictionResultData.map((prediction) => (
+
+                    {predictionResultData && predictionResultData.map((prediction) => (
                         <ExpertCard
                             key={prediction.uuid}
-                            teamName={prediction.teamName}
+                            teamName={prediction.uuid}
                             price={prediction.price}
                             onPay={() => handlereq(prediction.uuid, prediction.price)}
                         />

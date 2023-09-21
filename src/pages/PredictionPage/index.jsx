@@ -28,7 +28,7 @@ const PredictionPage = () => {
 
   const getPredictionApiCall = async () => {
     try {
-      const apiUrl = 'http://localhost:8000/prediction/';
+      const apiUrl = 'http://localhost:8000/auth/api/prediction/';
       const authToken = getLocalStorage(accessTokenKey);
 
       const headers = {
@@ -69,7 +69,7 @@ const PredictionPage = () => {
       };
 
       const response = await Axios.post(
-        `http://localhost:8000/prediction/${uuid}/`,
+        `http://localhost:8000/auth/api/prediction/${uuid}/`,
         bodyData,
         { headers }
       );
