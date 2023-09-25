@@ -11,7 +11,7 @@ export default function ExpertTeamPage() {
 
     useEffect(() => {
         getExpertTeamData();
-    }, [uuid]);
+    }, [getExpertTeamData]);
 
     const getExpertTeamData = async () => {
         try {
