@@ -56,7 +56,7 @@ export default function Login() {
         }
         loginRespRef.current.prevLoginResp = loginResp;
         loginRespRef.current.prevLoggedInUserResp = loggedInUserResp;
-    }, [loginResp, loggedInUserResp, authErrorResp, dispatch, navigate]);
+    }, [loginResp, loggedInUserResp, authErrorResp]);
 
     const loginForm = useFormik({
         enableReinitialize: false,
