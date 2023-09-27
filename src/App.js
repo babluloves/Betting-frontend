@@ -4,6 +4,10 @@ import MenuLayout from "./layout/MenuLayout";
 
 export default function App() {
   return (
-    <MenuLayout />
+    <Router>
+    <Routes>
+    <Route path="/" element={<MenuLayout />} />
+    </Routes>
+    </Router>
   )
 }
