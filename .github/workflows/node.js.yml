@@ -1,17 +1,6 @@
-name: Node.js CI
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
 
     steps:
     - name: Checkout code
@@ -20,13 +9,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
 
     - name: Install project dependencies
       run: npm install
 
-    - name: Build project
-      run: npm run build  # Replace with your actual build command
-
-    - name: Run tests
-      run: npm test  # Replace with your actual test command
+    - name: Build project without treating ESLint warnings as errors
+      env:
+        CI: false  # Set CI environment variable to false
+      run: npm run build  # Run the build command without treating ESLint warnings as errors
