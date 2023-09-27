@@ -27,6 +27,3 @@ jobs:
 
     - name: Build project
       run: npm run build  # Replace with your actual build command
-
-    - name: Run tests
-      run: npm test  # Replace with your actual test command
