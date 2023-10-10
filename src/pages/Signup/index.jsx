@@ -66,7 +66,7 @@ export default function Signup() {
     }
     signupRespRef.current.prevSignupResp = signupResp;
     signupRespRef.current.prevLoggedInUserResp = loggedInUserResp;
-  }, [signupResp, loggedInUserResp, authErrorResp]);
+  }, [signupResp, loggedInUserResp, authErrorResp, dispatch, navigate]);
 
   const signupForm = useFormik({
     enableReinitialize: false,

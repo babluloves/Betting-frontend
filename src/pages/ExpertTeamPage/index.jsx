@@ -10,32 +10,32 @@ export default function ExpertTeamPage() {
     const { uuid } = useParams();
 
     useEffect(() => {
+        const getExpertTeamData = async () => {
+            try {
+                const apiUrl = `http://localhost:8000/results/${uuid}`;
+                const authToken = getLocalStorage(accessTokenKey);
+
+                const headers = {
+                    Authorization: `JWT ${authToken}`,
+                };
+
+                const response = await Axios.get(apiUrl, { headers });
+
+                if (response.status === 200) {
+                    const data = response.data;
+                    console.log('API Response:', data);
+
+                    setExpertTeamData(data); // Set the expert team data in state
+                } else {
+                    console.error('Error fetching expert team data:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching expert team data:', error);
+            }
+        };
+
         getExpertTeamData();
     }, [uuid]);
-
-    const getExpertTeamData = async () => {
-        try {
-            const apiUrl = `http://localhost:8000/results/${uuid}`;
-            const authToken = getLocalStorage(accessTokenKey);
-
-            const headers = {
-                Authorization: `JWT ${authToken}`,
-            };
-
-            const response = await Axios.get(apiUrl, { headers });
-
-            if (response.status === 200) {
-                const data = response.data;
-                console.log('API Response:', data);
-
-                setExpertTeamData(data); // Set the expert team data in state
-            } else {
-                console.error('Error fetching expert team data:', response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching expert team data:', error);
-        }
-    };
 
     return (
         <div>

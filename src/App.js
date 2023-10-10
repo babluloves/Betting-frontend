@@ -4,6 +4,6 @@ import MenuLayout from "./layout/MenuLayout";
 
 export default function App() {
   return (
-    <MenuLayout />
+    <MenuLayout/>
   )
 }
