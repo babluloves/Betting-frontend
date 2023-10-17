@@ -82,8 +82,7 @@ const PredictionPage = () => {
         // After successfully creating the prediction, open Razorpay payment UI
         //console.log(response.order.order_payment_id);
         const options = {
-          key_id: 'rzp_test_pUAFN3wugOV9Ek',
-          key_secret: 'zilYJHW6eX7JaESyFkJfR0UY',
+          key_id: 'rzp_test_pUAFN3wugOV9Ek'
           amount: 200 * 100, // Amount in paise (Razorpay expects the amount in paise)
           currency: 'INR',
           name: 'Org. Name',
